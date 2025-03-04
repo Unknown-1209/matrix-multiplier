@@ -32,10 +32,11 @@ matrix_multiplier.o: matrix_multiplier.cpp
 
 # Clean up object files and executables
 clean:
-	rm -f *.o *.gcov *.gcda *.gcno input_tester main
+	rm -f *.o *.gcov *.gcda *.gcno main main_bench input_tester
 
 # Generate a code coverage report
 report: main
 	./main  # Run input_tester
 	gcov -r main.cpp # Generate gcov report
+	gcov -r matrix_multiplier.cpp
 

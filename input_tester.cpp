@@ -11,6 +11,9 @@ void testMatrixAssignment();
 void testInvalidMatrices();
 void testMatrixMult();
 void testMatrixMult_1();
+void testWinogradMult();
+void testWinogradMult_1();
+
 
 int main() {
     cout << "------Running input tester------\n";
@@ -20,6 +23,8 @@ int main() {
 	testInvalidMatrices();
 	testMatrixMult();
 	testMatrixMult_1();
+	testWinogradMult();
+	testWinogradMult_1();
 
     return 0;
 }
@@ -97,6 +102,27 @@ void testMatrixMult_1() {
     Matrix expected2 = {{32, 38}, {13, 13}};
 
     Matrix resultMatrix = multiplyMatrices(C, D);
-    assertTrue(resultMatrix == expected2, "2x3 * 3x2 Matrix Multiplication");
 }
+
+void testWinogradMult() {
+    // Test case 1: 2x2 Matrix Multiplication
+    Matrix A = {{1, 2}, {3, 4}};
+    Matrix B = {{5, 6}, {7, 8}};
+    Matrix expected = {{19, 22}, {43, 50}};
+
+    Matrix resultMatrix = winogradMultiply(A, B);
+    assertTrue(resultMatrix == expected, "2x2 Winograd's algorithm Matrix Multiplication");
+}
+
+
+void testWinogradMult_1() {
+    // Test case 2: 2x3 * 3x2 Matrix Multiplication
+    Matrix C = {{2, 3, 4}, {1, 0, 2}};
+    Matrix D = {{3, 1}, {2, 4}, {5, 6}};
+    Matrix expected2 = {{32, 38}, {13, 13}};
+
+    Matrix resultMatrix = winogradMultiply(C, D);
+    assertTrue(resultMatrix == expected2, "2x3 * 3x2 Winograd's algorithm Matrix Multiplication");
+}
+
 

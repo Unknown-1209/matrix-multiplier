@@ -23,11 +23,11 @@ int main() {
     }
 	
 
-	 // Start timer
+	// Start timer
     auto start = std::chrono::high_resolution_clock::now();
 	
 	cout << "Multiplying matrices...\n";
-	multiplyMatrices(A,B);
+	Matrix result = winogradMultiply(A,B);
 
     // Stop timer
     auto end = std::chrono::high_resolution_clock::now();
